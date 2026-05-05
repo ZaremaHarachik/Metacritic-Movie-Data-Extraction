@@ -1,43 +1,51 @@
-Metacritic Movie Scraper
-This project is a Python-based web scraper designed to fetch and organize movie data from Metacritic. It demonstrates the use of Regular Expressions (Regex) for data extraction and pandas for data structuring.  
-+1
+# Metacritic Movie Scraper
 
-Features
-Web Scrapping: Fetches live HTML content from Metacritic using urllib3 and certifi for secure HTTPS requests.  
+This project is a Python-based web scraper that extracts and structures movie data from Metacritic. It demonstrates data collection, parsing, and transformation using regular expressions and pandas.
 
-Regex Extraction: Efficiently parses movie titles, descriptions, release dates, and Metascores using specific regex patterns.  
+---
 
-Data Cleaning: Automatically handles HTML encoding (converting &#39; to apostrophes) and filters out non-relevant text.  
+## Features
 
-Structured Output: Compiles extracted data into a dictionary-based list and converts it into a pandas DataFrame for easy analysis.  
+- **Web Scraping:** Fetches HTML content from Metacritic using `urllib3` with secure HTTPS requests  
+- **Data Extraction:** Uses regular expressions (regex) to extract movie titles, metascores, and release dates  
+- **Data Cleaning:** Handles HTML encoding issues (e.g., `&#39;`) and removes irrelevant text  
+- **Structured Output:** Organizes data into a pandas DataFrame for analysis and export  
 
-Technologies Used
-Python 3.x
+---
 
-  
-urllib3: For sending HTTP requests.  
+## Technologies Used
 
-certifi: To provide SSL certificates for secure connections.  
+- Python 3  
+- `urllib3` – HTTP requests  
+- `certifi` – SSL certificate verification  
+- `re` (Regex) – pattern matching and text extraction  
+- `pandas` – data manipulation and structuring  
 
-re (Regex): For pattern matching and text extraction.  
+---
 
-pandas: For data manipulation and table formatting.  
+## How It Works
 
-How It Works
-Connection: The script establishes a connection to the Metacritic "All Movies" directory for 2020.  
+1. **Connects** to the Metacritic “All Movies (2020)” page  
+2. **Extracts** data using regex patterns such as:
+   - `data-title="(.*?)"` (movie titles)  
+   - `Metascore (\d+)` (scores)  
+3. **Transforms** raw data into a structured format (list of dictionaries)  
+4. **Loads** results into a pandas DataFrame for easy analysis  
 
-Extraction: It searches the HTML for patterns such as data-title="(.*?)" and title="Metascore (\d+) out of 100".  
+---
 
-Transformation: The separate lists of titles, scores, and dates are combined into a single structured list of dictionaries.  
+## Example Output
 
-Loading: The final data is loaded into a pandas DataFrame, providing a clean preview of the top-rated films.  
+| Title                   | Metascore | Release Date |
+|------------------------|----------|--------------|
+| Small Axe: Lovers Rock | 95       | Nov 27, 2020 |
 
-Example Output
-The scraper retrieves data points for 24 movies, including:  
+The scraper collects structured data for multiple movies, enabling further analysis or export to Excel.
 
-Title: Small Axe: Lovers Rock
+---
 
-  
-Metascore: 95  
+## How to Run
 
-Release Date: Nov 27, 2020
+```bash
+pip install pandas urllib3 certifi
+python main.py
