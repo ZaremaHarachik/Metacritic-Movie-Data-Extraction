@@ -36,9 +36,11 @@ This project is a Python-based web scraper that extracts and structures movie da
 
 ## Example Output
 
-| Title                   | Metascore | Release Date |
-|------------------------|----------|--------------|
-| Small Axe: Lovers Rock | 95       | Nov 27, 2020 |
+| Title                   | Description                                      | Release Date   | Metascore |
+|------------------------|--------------------------------------------------|----------------|-----------|
+| Small Axe: Lovers Rock | A single evening at a house party in 1980s West... | Nov 27, 2020   | 95        |
+
+The scraper extracts multiple data fields for each movie, including title, description, release date, and metascore, and organizes them into a structured dataset for analysis.
 
 The scraper collects structured data for multiple movies, enabling further analysis or export to Excel.
 
